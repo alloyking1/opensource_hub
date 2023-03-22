@@ -14,5 +14,14 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         User::factory()->count(20)->create();
+
+        User::where('id', 1)->update([
+            'email' => 'test@gmail.com',
+            'is_admin' => 1,
+        ]);
+
+        User::where('id', 2)->update([
+            'email' => 'test2@gmail.com',
+        ]);
     }
 }

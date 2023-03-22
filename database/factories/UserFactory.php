@@ -26,11 +26,6 @@ class UserFactory extends Factory
             'remember_token' => Str::random(10),
         ];
 
-        User::where('id', 1)->update([
-            'email' => 'test@gmail.com',
-            'is_admin' => 1,
-        ]);
-
         return $user;
     }
 
