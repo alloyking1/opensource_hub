@@ -7,7 +7,9 @@ use Livewire\Component;
 
 class ProjectList extends Component
 {
-    public $pages = 10;
+    public $pages = 1;
+    // public $perPage;
+
 
     public function loadMore()
     {
@@ -16,8 +18,11 @@ class ProjectList extends Component
 
     public function render()
     {
+        // $projects = Project::paginate($this->perPage, ['*'], null, $this->pages);
+        $projects = Project::paginate($this->pages);
+
         return view('livewire.project-list', [
-            'projects' =>  Project::paginate($this->pages),
+            'projects' =>  $projects
         ]);
     }
 }
