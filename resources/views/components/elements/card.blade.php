@@ -5,10 +5,10 @@
     'stack'
 ])
 
-<div {{ $attributes->merge(['class' => 'rounded-md shadow-md bg-white p-6 border-gray-200 w-full h-2/4']) }}>
-    <div class="w-full h-1/2">
+<div {{ $attributes->merge(['class' => 'rounded-md shadow-md bg-white p-6 border-gray-200 h-full']) }}>
+    {{-- <div class="w-full h-1/2">
         <img class="w-full h-1/2" src="https://images.ctfassets.net/23aumh6u8s0i/7gu8qd0qzmuxWWjYLhZpqo/2bb8a206fe4a86af9414545b5c25c368/laravel" alt="">
-    </div>
+    </div> --}}
     <div class="py-4 content-evenly">
         <h1 class="text-3xl font-bold scroll-py-10">{{ $name }}</h1>
         <p class="text-md font-thin tracking-wide text-gray-500 pb-1">{{  substr($description, 0, 100) }}</p>
