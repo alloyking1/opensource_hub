@@ -9,7 +9,7 @@ class ProjectController extends Controller
 {
     public function show($id)
     {
-        return view('project.show', [
+        return view('projects.show', [
             'project' => Project::find($id),
         ]);
     }

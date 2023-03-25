@@ -18,8 +18,8 @@ class ProjectFactory extends Factory
     {
         return [
             'name' => fake()->name(),
-            'description' => fake()->realText(),
-            'body' => fake()->text(),
+            'description' => fake()->sentence(20),
+            'body' => fake()->sentence(500),
             'stack' => json_encode(['id' => 1, 'name' => 'laravel'])
         ];
     }

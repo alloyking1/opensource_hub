@@ -1,7 +1,7 @@
 <div>
     <x-elements.display-grid>
         @foreach ($projects as $project )
-            <x-elements.card :name="$project->name" :description="$project->description" :body="$project->body" :stack="$project->stack"/>
+            <x-elements.card link="{{ route('project.show', ['id'=>$project->id]) }}" :name="$project->name" :description="$project->description" :body="$project->body" :stack="$project->stack"/>
         @endforeach
     </x-elements.display-grid>
     <div

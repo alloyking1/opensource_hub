@@ -15,4 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource('/', ProjectController::class);
+// Route::resource('/', ProjectController::class)->only('show');
+Route::controller()->group(function () {
+    Route::get('/show/{id}', [ProjectController::class, 'show'])->name('project.show');
+});
