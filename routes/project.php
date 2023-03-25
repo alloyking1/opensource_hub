@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    dd('this is the project route');
+// Route::resource('/', ProjectController::class)->only('show');
+Route::controller()->group(function () {
+    Route::get('/show/{id}', [ProjectController::class, 'show'])->name('project.show');
 });

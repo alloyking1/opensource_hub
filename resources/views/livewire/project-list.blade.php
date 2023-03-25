@@ -1,12 +1,10 @@
 <div>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+    <x-elements.display-grid>
         @foreach ($projects as $project )
-            {{-- <x-elements.section> --}}
-                    <x-elements.card :name="$project->name" :description="$project->description" :body="$project->body" :stack="$project->stack"/>
-            {{-- </x-elements.section> --}}
-            @endforeach
-    </div>
-    <div>
+            <x-elements.card link="{{ route('project.show', ['id'=>$project->id]) }}" :name="$project->name" :description="$project->description" :body="$project->body" :stack="$project->stack"/>
+        @endforeach
+    </x-elements.display-grid>
+    <div
         x-data="{
             observe () {
                 let observer = new IntersectionObserver((entries) => {
@@ -24,5 +22,4 @@
         }"
         x-init="observe">
     </div>
-    {{-- <button wire:click.prevent="loadMore" class="p-4 bg-blue-500 text-white">Load more</button> --}}
 </div>
