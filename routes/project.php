@@ -17,5 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 // Route::resource('/', ProjectController::class)->only('show');
 Route::controller()->group(function () {
+    Route::get('/create', [ProjectController::class, 'create'])->name('project.create');
+    Route::post('/save', [ProjectController::class, 'save'])->name('project.save');
     Route::get('/show/{id}', [ProjectController::class, 'show'])->name('project.show');
 });
