@@ -38,8 +38,15 @@
                     </x-slot>
 
                     <x-slot name="content">
+                       
+                        <x-dropdown-link :href="route('user.project')">
+                            {{ __('Your projects') }}
+                        </x-dropdown-link>
                         <x-dropdown-link :href="route('profile.edit')">
-                            {{ __('Profile') }}
+                            {{ __('Favorite projects') }}
+                        </x-dropdown-link>
+                        <x-dropdown-link :href="route('profile.edit')">
+                            {{ __('Profile edit') }}
                         </x-dropdown-link>
 
                         <!-- Authentication -->

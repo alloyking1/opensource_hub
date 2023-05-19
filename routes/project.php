@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\UserProjectController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,4 +21,8 @@ Route::controller()->group(function () {
     Route::get('/create', [ProjectController::class, 'create'])->name('project.create');
     Route::post('/save', [ProjectController::class, 'save'])->name('project.save');
     Route::get('/show/{id}', [ProjectController::class, 'show'])->name('project.show');
+});
+
+Route::prefix('user')->group(function () {
+    Route::get('/project', [UserProjectController::class, 'index'])->name('user.project');
 });

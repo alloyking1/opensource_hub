@@ -15,9 +15,9 @@ class ProjectController extends Controller
 
     public function save(ProjectCreateRequest $request)
     {
-        return Project::updateOrCreate($request->except('_token'));
-
-        // dd($request->all());
+        Project::updateOrCreate($request->except('_token'));
+        // $session->ha TODO return flash message of success
+        return view('dashboard');
     }
 
     public function show($id)
