@@ -11,4 +11,9 @@ class Project extends Model
 
     protected $fillable = ['name', 'description', 'body', 'stack'];
     protected $casts = ['stack' => 'array'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
