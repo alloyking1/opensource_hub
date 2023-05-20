@@ -12,7 +12,7 @@
             
             <x-text.p text="Stack:" class="italics"/> 
             <x-elements.stack-badge>
-                PHP, Laravel
+                {{ $project->stack }}
             </x-elements.stack-badge>
             <x-text.p text="Team:" class="italics"/>
             <x-text.p text="social media handles:" class="italics"/>

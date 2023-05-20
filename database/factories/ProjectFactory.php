@@ -17,10 +17,11 @@ class ProjectFactory extends Factory
     public function definition(): array
     {
         return [
+            'user_id' => 1,
             'name' => fake()->name(),
             'description' => fake()->sentence(20),
             'body' => fake()->sentence(500),
-            'stack' => json_encode(['id' => 1, 'name' => 'laravel'])
+            'stack' => json_encode(['laravel', 'php'])
         ];
     }
 }

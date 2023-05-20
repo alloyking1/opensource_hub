@@ -15,6 +15,10 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                
+                    <x-nav-link :href="route('project.create')" :active="request()->routeIs('project.create')">
+                        {{ __('Add project') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -34,8 +38,15 @@
                     </x-slot>
 
                     <x-slot name="content">
+                       
+                        <x-dropdown-link :href="route('user.project')">
+                            {{ __('Your projects') }}
+                        </x-dropdown-link>
                         <x-dropdown-link :href="route('profile.edit')">
-                            {{ __('Profile') }}
+                            {{ __('Favorite projects') }}
+                        </x-dropdown-link>
+                        <x-dropdown-link :href="route('profile.edit')">
+                            {{ __('Profile edit') }}
                         </x-dropdown-link>
 
                         <!-- Authentication -->

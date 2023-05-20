@@ -1,7 +1,7 @@
 <x-app-layout>
-    <x-text.sub-header title="All open-source projects"/>
+    <x-text.sub-header title="Your open-source projects"/>
 
     <x-elements.wrapper class="pt-10">
-        <livewire:project-list/>
+        <livewire:user-project-list/>
     </x-elements.wrapper>
 </x-app-layout>
