@@ -33,6 +33,16 @@ class Project extends Model
         $this->like($user, false);
     }
 
+    public function isLikedBy(User $user)
+    {
+        return (bool) $user->likes->where('project_id', $this->id)->where('liked', true)->count();
+    }
+
+    public function isDisLikedBy(User $user)
+    {
+        return (bool) $user->likes->where('project_id', $this->id)->where('liked', false)->count();
+    }
+
     //like relationship
     public function likes()
     {
