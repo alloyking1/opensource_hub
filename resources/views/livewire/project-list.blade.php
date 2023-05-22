@@ -1,7 +1,15 @@
 <div>
     <x-elements.display-grid>
         @foreach ($projects as $project )
-            <x-elements.card link="{{ route('project.show', ['id'=>$project->id]) }}" :name="$project->name" :description="$project->description" :body="$project->body" :stack="$project->stack"/>
+        {{ $this->likedByUser($project->id) }}
+       
+            <x-elements.card link="{{ route('project.show', ['id'=>$project->id]) }}" 
+                :id="$project->id" 
+                :name="$project->name" 
+                :description="$project->description" 
+                :body="$project->body" 
+                :likeCount="$project->likes->count()"
+                :stack="$project->stack"/>
         @endforeach
     </x-elements.display-grid>
     <div
