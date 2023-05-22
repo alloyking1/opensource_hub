@@ -12,4 +12,8 @@ class UserProjectService
         //fix pagination
         return $userProjects = User::with('projects')->get();
     }
+
+    public function likedUserProjects()
+    {
+    }
 }
