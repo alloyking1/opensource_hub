@@ -6,11 +6,14 @@ use App\Models\Project;
 use Livewire\Component;
 
 use App\Models\Like;
+use App\Traits\LikeTrait;
 use Illuminate\Support\Facades\Auth;
 
 class ProjectList extends Component
 {
-    public $pages = 10;
+    use LikeTrait;
+
+    public $pages = 50;
     // public $perPage;
     protected $listeners = ['refreshComponent' => '$refresh'];
 
@@ -22,8 +25,9 @@ class ProjectList extends Component
 
     public function likedByUser($projectId)
     {
-        return (bool) Like::where('user_id', Auth::id())->Where('project_id', $projectId)->Where('liked', true)->exists();
+        return $this->isLikedBy(Auth::id(), $projectId);
     }
+
 
     public function render()
     {

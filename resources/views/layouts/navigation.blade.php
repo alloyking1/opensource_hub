@@ -42,7 +42,7 @@
                         <x-dropdown-link :href="route('user.project')">
                             {{ __('Your projects') }}
                         </x-dropdown-link>
-                        <x-dropdown-link :href="route('profile.edit')">
+                        <x-dropdown-link :href="route('user.liked.project')">
                             {{ __('Favorite projects') }}
                         </x-dropdown-link>
                         <x-dropdown-link :href="route('profile.edit')">

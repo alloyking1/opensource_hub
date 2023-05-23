@@ -24,9 +24,4 @@ class Project extends Model
     {
         return $this->hasMany(Like::class);
     }
-
-    public function likedByUser($user = null, $project = null)
-    {
-        return (bool) Like::where('user_id', $user->id)->where('project_id', $project->id)->where('liked', true)->get();
-    }
 }

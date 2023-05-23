@@ -15,5 +15,6 @@ class UserProjectService
 
     public function likedUserProjects()
     {
+        $likedProjects = User::with('like')->where('liked', true)->get();
     }
 }

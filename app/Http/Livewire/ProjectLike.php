@@ -18,26 +18,7 @@ class ProjectLike extends Component
 
     public function like()
     {
-        $like = Like::where('user_id', Auth::id())->where('project_id', $this->projectId)->first();
-        if ($like !== null) {
-            switch ($like->liked) {
-                case (true):
-                    $like->update(['liked' => false]);
-                    break;
-                case (false):
-                    $like->update(['liked' => true]);
-                    break;
-                default:
-                    return false;
-            }
-        } else {
-            Like::create([
-                'user_id' => Auth::id(),
-                'project_id' => $this->projectId,
-                'liked' => true
-            ]);
-        }
-
+        $this->createLike(Auth::id(), $this->projectId);
         $this->emit('refreshComponent');
     }
 
