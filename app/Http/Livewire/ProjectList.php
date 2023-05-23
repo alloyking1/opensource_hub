@@ -10,8 +10,9 @@ use Illuminate\Support\Facades\Auth;
 
 class ProjectList extends Component
 {
-    public $pages = 50;
+    public $pages = 10;
     // public $perPage;
+    protected $listeners = ['refreshComponent' => '$refresh'];
 
 
     public function loadMore()

@@ -25,11 +25,13 @@
                     PHP, laravel
                 </div>
                 <div class="flex">
-                <div class="mt-4 mr-3">{{ $likeCount }}</div>
+                <div class="mt-6 mr-3">
+                    <x-text.xs :text="$likeCount" />
+                </div>
                 
-               
-                <livewire:project-like :projectId="$id" :likedByUser="$likedByUser"/>
-                
+                <div class="rounded-full p-2 mt-2 {{ $likedByUser ? 'bg-blue-400 text-white'  : 'bg-gray-400 text-white' }}">
+                <livewire:project-like :projectId="$id" :likedByUser="$likedByUser" :key="'project-' . $id"/>
+                </div>
                 </div>
                
                

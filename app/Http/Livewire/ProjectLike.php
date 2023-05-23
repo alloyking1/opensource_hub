@@ -37,6 +37,8 @@ class ProjectLike extends Component
                 'liked' => true
             ]);
         }
+
+        $this->emit('refreshComponent');
     }
 
 
