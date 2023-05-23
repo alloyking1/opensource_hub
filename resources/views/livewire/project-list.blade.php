@@ -6,7 +6,7 @@
                 :name="$project->name" 
                 :description="$project->description" 
                 :body="$project->body" 
-                :likeCount="$project->likes->count()"
+                :likeCount="$project->likes->where('liked',true)->count()"
                 :stack="$project->stack"
                 :likedByUser="$this->likedByUser($project->id)"/>
         @endforeach

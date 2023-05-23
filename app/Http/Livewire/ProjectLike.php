@@ -14,15 +14,29 @@ class ProjectLike extends Component
     use LikeTrait;
 
     public $projectId;
+    public $likedByUser;
 
     public function like()
     {
-        $like = Like::updateOrCreate([
-            'user_id' => Auth::id(),
-            'project_id' => $this->projectId
-        ], [
-            'liked' => true
-        ]);
+        $like = Like::where('user_id', Auth::id())->where('project_id', $this->projectId)->first();
+        if ($like !== null) {
+            switch ($like->liked) {
+                case (true):
+                    $like->update(['liked' => false]);
+                    break;
+                case (false):
+                    $like->update(['liked' => true]);
+                    break;
+                default:
+                    return false;
+            }
+        } else {
+            Like::create([
+                'user_id' => Auth::id(),
+                'project_id' => $this->projectId,
+                'liked' => true
+            ]);
+        }
     }
 
 
