@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class ProjectList extends Component
 {
-    public $pages = 10;
+    public $pages = 50;
     // public $perPage;
 
 
@@ -21,7 +21,7 @@ class ProjectList extends Component
 
     public function likedByUser($projectId)
     {
-        return (bool) Like::where('user_id', Auth::id())->andWhere('project_id', $projectId)->andWhere('liked', true)->get();
+        return (bool) Like::where('user_id', Auth::id())->Where('project_id', $projectId)->Where('liked', true)->exists();
     }
 
     public function render()
