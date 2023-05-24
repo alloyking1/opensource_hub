@@ -10,6 +10,8 @@ use App\Traits\LikeTrait;
 
 class UserFavoriteProjectList extends Component
 {
+    protected $listeners = ['refreshComponent' => '$refresh'];
+
     use LikeTrait;
 
     public function likedByUser($projectId)
