@@ -36,6 +36,15 @@
                         <x-input-error :messages="$errors->get('stack')" class="mt-2" />
                     </div>
 
+                    <div class="mt-4">
+                        <x-input-label for="stack" :value="__('Project Category')" />
+                        <x-select>
+                            @foreach (\App\Enums\ProjectCategoryEnum::cases() as $category )
+                                <x-select-options :name="$category->value" :value="$category->value"/>
+                            @endforeach
+                        </x-select>
+                    </div>
+
             
                     <div class="flex items-center justify-end mt-4">
                         <x-primary-button class="ml-4">

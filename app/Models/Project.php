@@ -20,6 +20,11 @@ class Project extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function category()
+    {
+        return $this->hasOne(Category::class);
+    }
+
     public function likes()
     {
         return $this->hasMany(Like::class);
