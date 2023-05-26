@@ -11,6 +11,6 @@ class UserProjectController extends Controller
 {
     public function index(UserProjectService $userProjectService)
     {
-        return view('profile.projects.own');
+        return view('profile.projects.user-project-list');
     }
 }

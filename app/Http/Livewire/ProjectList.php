@@ -5,10 +5,17 @@ namespace App\Http\Livewire;
 use App\Models\Project;
 use Livewire\Component;
 
+use App\Models\Like;
+use App\Traits\LikeTrait;
+use Illuminate\Support\Facades\Auth;
+
 class ProjectList extends Component
 {
-    public $pages = 10;
+    use LikeTrait;
+
+    public $pages = 50;
     // public $perPage;
+    protected $listeners = ['refreshComponent' => '$refresh'];
 
 
     public function loadMore()
@@ -16,11 +23,15 @@ class ProjectList extends Component
         $this->pages += 10;
     }
 
+    public function likedByUser($projectId)
+    {
+        return $this->isLikedBy(Auth::id(), $projectId);
+    }
+
+
     public function render()
     {
-        // $projects = Project::paginate($this->perPage, ['*'], null, $this->pages);
-        $projects = Project::paginate($this->pages);
-
+        $projects = Project::with(['likes', 'user'])->paginate($this->pages);
         return view('livewire.project-list', [
             'projects' =>  $projects
         ]);

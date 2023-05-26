@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\UserFavoriteProjectController;
 use App\Http\Controllers\UserProjectController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,5 +24,6 @@ Route::controller()->group(function () {
 });
 
 Route::prefix('user')->group(function () {
-    Route::get('/project', [UserProjectController::class, 'index'])->name('user.project');
+    Route::get('/owned', [UserProjectController::class, 'index'])->name('user.project');
+    Route::get('/favorite/projects', UserFavoriteProjectController::class)->name('user.liked.project');
 });

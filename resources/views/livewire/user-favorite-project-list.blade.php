@@ -1,6 +1,8 @@
 <div>
+    
     <x-elements.display-grid>
         @foreach ($projects as $project )
+            @if ($this->likedByUser($project->id))
             <x-elements.card link="{{ route('project.show', ['id'=>$project->id]) }}" 
                 :id="$project->id" 
                 :name="$project->name" 
@@ -9,10 +11,11 @@
                 :likeCount="$project->likes->where('liked',true)->count()"
                 :stack="$project->stack"
                 :likedByUser="$this->likedByUser($project->id)"/>
+            @endif
         @endforeach
     </x-elements.display-grid>
 
-    <div
+    {{-- <div
         x-data="{
             observe () {
                 let observer = new IntersectionObserver((entries) => {
@@ -29,5 +32,5 @@
             }
         }"
         x-init="observe">
-    </div>
+    </div> --}}
 </div>

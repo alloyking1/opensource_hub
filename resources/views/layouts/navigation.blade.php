@@ -13,11 +13,14 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                        {{ __('Projects') }}
                     </x-nav-link>
                 
-                    <x-nav-link :href="route('project.create')" :active="request()->routeIs('project.create')">
-                        {{ __('Add project') }}
+                    <x-nav-link :href="route('tools.index')" :active="request()->routeIs('tools.index')">
+                        {{ __('Tools') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('tools.index')" :active="request()->routeIs('tools.package')">
+                        {{ __('Packages') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -39,10 +42,13 @@
 
                     <x-slot name="content">
                        
+                        <x-dropdown-link :href="route('project.create')">
+                            {{ __('Add project') }}
+                        </x-dropdown-link>
                         <x-dropdown-link :href="route('user.project')">
                             {{ __('Your projects') }}
                         </x-dropdown-link>
-                        <x-dropdown-link :href="route('profile.edit')">
+                        <x-dropdown-link :href="route('user.liked.project')">
                             {{ __('Favorite projects') }}
                         </x-dropdown-link>
                         <x-dropdown-link :href="route('profile.edit')">

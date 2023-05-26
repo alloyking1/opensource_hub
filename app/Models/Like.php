@@ -10,4 +10,12 @@ class Like extends Model
     use HasFactory;
 
     protected $guarded = [];
+    protected $casts = [
+        'liked' => 'boolean',
+    ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
